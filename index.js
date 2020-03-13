@@ -18,8 +18,12 @@ app.set('view engine', '.hbs');
 app.get('/', async (req, res) => {
 
     let data = await getWeather();
-
-    console.log(data);
+    let temp = data.main.temp;
+    let temp_min = data.main.temp_min;
+    let temp_max = data.main.temp_max;
+    let country = data.sys.country;
+    let city = data.name;
+    console.log(city);
 
     res.render('index', {data: 'Hello from express'});
 })
