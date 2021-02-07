@@ -12,3 +12,6 @@
     left: 25%;
 }
 
+p {
+    text-transform: capitalize;
+}

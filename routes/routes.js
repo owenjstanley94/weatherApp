@@ -12,15 +12,13 @@ router.post("/", async(req, res)=> {
     let country = req.body.country;
     let data = await getWeather(city, country);
 
-    if(data.cod !== "404") {
+    if(data !== null) {
         let city = data.name;
         let country = data.sys.country;
-        let temp = Math.round(data.main.temp);
+        let temp = `${Math.round(data.main.temp)} + ${'&#8451;'}`;
         let description = data.weather[0].description;
 
-
-        res.render('index', {data:{city, country, description, temp}});
-
+        res.render('index', {data: {city, country, description, temp}});
 
     }  else {
         let message = `${city} does not exist`;
