@@ -1,14 +1,30 @@
-<form action="/" method="post">
-    <input type="text" name="city" placeholder="City">
-    <input type="text" name="country" placeholder="Country">
-    <input type="submit" value="submit">
-</form>
-
-<ul>
-    {{#each data}}
-        <li>{{@key}} : {{this}}</li>
-    {{/each}}
-</ul>
-<p>
-    {{message}}
-</p>
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div class="card">
+            <form action="/" method="POST">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city">
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" name="country">
+                    <div id="countryNotice" class="form-text">This is required to ensure the correct city is selected.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="card" id="weatherDisplay">
+            <h3>{{data.city}}, {{data.country}}</h3>
+            <p>{{data.description}}</p>
+            <p>{{data.temp}} &#8451 </p>
+            <p>{{message}}</p>
+            <p>cloud</p>
+        </div>
+    </div>
+</div>
+<script>
+    $( "div:contains('cloud')".css( "background", "pink" ),
+</script>
